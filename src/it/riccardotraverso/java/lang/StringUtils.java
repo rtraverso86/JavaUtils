@@ -62,13 +62,13 @@ public class StringUtils {
 	/**
 	 * Joins into a string an iterable collection of objects by using a separator.
 	 * 
-	 * @param i
+	 * @param coll
 	 * @param separator
 	 * @return
 	 */
-	public static <T> String join(Iterable<T> i, String separator) {
-		if (i == null) return "";
-		Iterator<T> it = i.iterator();
+	public static <T> String join(Iterable<T> coll, String separator) {
+		if (coll == null) return "";
+		Iterator<T> it = coll.iterator();
 		if (!it.hasNext()) return "";
 		StringBuilder sb = new StringBuilder(it.next().toString());
 		while (it.hasNext()) {
