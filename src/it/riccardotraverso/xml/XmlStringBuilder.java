@@ -10,7 +10,7 @@ public class XmlStringBuilder {
 	
 	
 	private StringBuilder _sb = new StringBuilder();
-	private Stack<String> _tags = new Stack<>();
+	private Stack<String> _tags = new Stack<String>();
 	private boolean _isClosed = false;
 	
 	/** Character used for indentation */

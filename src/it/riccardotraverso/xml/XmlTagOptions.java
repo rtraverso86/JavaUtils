@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class XmlTagOptions {
 	
-	private Map<String, String> options = new HashMap<>();
+	private Map<String, String> options = new HashMap<String, String>();
 
 	public XmlTagOptions() { }
 	
