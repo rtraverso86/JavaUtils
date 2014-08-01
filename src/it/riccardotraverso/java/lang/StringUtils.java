@@ -88,4 +88,19 @@ public class StringUtils {
 		return sb.toString();
 	}
 
+	
+	/**
+	 * Capitalizes the very first character of a given string.
+	 * @param s
+	 * @return
+	 */
+	public static String capitalize(String s) {
+		if (s == null || s.isEmpty())
+			return s;
+		StringBuilder builder = new StringBuilder();
+		builder.append(Character.toUpperCase(s.charAt(0)));
+		builder.append(s.substring(1));
+		return builder.toString();
+	}
+	
 }
