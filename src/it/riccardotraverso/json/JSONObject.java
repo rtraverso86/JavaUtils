@@ -78,13 +78,23 @@ public class JSONObject extends JSON {
 	public JSONObject() {
 	}
 
-	public void setProperty(String name, JSON value) {
+	/**
+	 * Sets the value of a given property, eventually creating it when not
+	 * present.
+	 * 
+	 * @param name
+	 * @param value
+	 * @return a pointer to this, to chain more quickly multiple calls to
+	 *         setProperty().
+	 */
+	public JSONObject setProperty(String name, JSON value) {
 		Property property = getProperty(name);
 		if (property == null) {
 			properties.add(new Property(name, value));
 		} else {
 			property.value = value;
 		}
+		return this;
 	}
 
 	/**
@@ -122,7 +132,7 @@ public class JSONObject extends JSON {
 	 * @param propertyName
 	 * @return the corresponding value, or null if the property is not present
 	 */
-	public JSON getValue(String propertyName) {
+	public JSON getPropertyValue(String propertyName) {
 		Property property = getProperty(propertyName);
 		if (property != null) {
 			return property.value;
