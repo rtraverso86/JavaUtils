@@ -3,10 +3,10 @@ package it.riccardotraverso.json;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class JSONArray extends JSON implements Iterable<JSON> {
+public class JSONArray<J extends JSON> extends JSON implements Iterable<J> {
 	
 	/** The ordered list of values of the array */
-	private ArrayList<JSON> values = new ArrayList<JSON>();
+	private ArrayList<J> values = new ArrayList<J>();
 
 	/**
 	 * Creates a new empty JSONArray.
@@ -19,7 +19,7 @@ public class JSONArray extends JSON implements Iterable<JSON> {
 	 * 
 	 * @param value
 	 */
-	public void addValue(JSON value) {
+	public void addValue(J value) {
 		values.add(value);
 	}
 	
@@ -28,7 +28,7 @@ public class JSONArray extends JSON implements Iterable<JSON> {
 	 * 
 	 * @param value
 	 */
-	public void removeValue(JSON value) {
+	public void removeValue(J value) {
 		values.remove(value);
 	}
 	
@@ -61,14 +61,14 @@ public class JSONArray extends JSON implements Iterable<JSON> {
 	}
 
 	@Override
-	public Iterator<JSON> iterator() {
+	public Iterator<J> iterator() {
 		return values.iterator();
 	}
 	
 	@Override
 	public void accept(JSONVisitor v) {
 		v.visitJSONArray(this);
-		for (JSON value : values) {
+		for (J value : values) {
 			value.accept(v);
 		}
 	}
@@ -94,4 +94,6 @@ public class JSONArray extends JSON implements Iterable<JSON> {
 		return builder.toString();
 	}
 
+	
+	
 }

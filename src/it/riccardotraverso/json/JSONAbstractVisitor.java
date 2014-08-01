@@ -7,7 +7,7 @@ public class JSONAbstractVisitor implements JSONVisitor {
 	public JSONAbstractVisitor() { }
 
 	@Override
-	public void visitJSONArray(JSONArray arr) { }
+	public void visitJSONArray(JSONArray<? extends JSON> arr) { }
 
 	@Override
 	public void visitJSONObject(JSONObject obj) { }
@@ -17,5 +17,5 @@ public class JSONAbstractVisitor implements JSONVisitor {
 
 	@Override
 	public void visitJSONProperty(Property prop) { }
-
+	
 }
