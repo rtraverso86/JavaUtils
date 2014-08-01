@@ -43,6 +43,16 @@ public class StringUtils {
 	}
 	
 	/**
+	 * Returns null when s is the empty string, or s as is otherwise.
+	 * 
+	 * @param s
+	 * @return
+	 */
+	public static String emptyAsNull(String s) {
+		return isBlank(s) ? null : s; 
+	}
+	
+	/**
 	 * Joins into a string an array of objects by using a separator.
 	 * 
 	 * @param arr
