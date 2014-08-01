@@ -2,9 +2,10 @@ package it.riccardotraverso.json;
 
 import it.riccardotraverso.java.lang.StringUtils;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
-public class JSONObject extends JSON {
+public class JSONObject extends JSON implements Iterable<JSONObject.Property> {
 
 	public class Property {
 		private String name;
@@ -146,6 +147,11 @@ public class JSONObject extends JSON {
 		for (Property property : properties) {
 			property.accept(v);
 		}
+	}
+
+	@Override
+	public Iterator<Property> iterator() {
+		return properties.iterator();
 	}
 
 	@Override
