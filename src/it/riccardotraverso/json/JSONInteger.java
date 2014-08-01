@@ -8,6 +8,18 @@ public class JSONInteger extends JSON {
 		this.value = value;
 	}
 	
+	public JSONInteger(Integer value) {
+		this.value = value == null ? 0 : value.intValue();
+	}
+	
+	public JSONInteger(String value) {
+		this.value = value == null ? 0 : Integer.parseInt(value);
+	}
+	
+	public JSONInteger(boolean value) {
+		this.value = value ? 1 : 0;
+	}
+	
 
 	/**
 	 * @return the value

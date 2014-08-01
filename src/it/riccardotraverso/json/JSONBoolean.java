@@ -11,6 +11,18 @@ public class JSONBoolean extends JSON {
 		super();
 		this.value = value;
 	}
+	
+	public JSONBoolean(Boolean value) {
+		this.value = value.booleanValue();
+	}
+	
+	public JSONBoolean(String value) {
+		this.value = Boolean.parseBoolean(value);
+	}
+	
+	public JSONBoolean(int value) {
+		this.value = value == 0 ? false : true;
+	}
 
 	/**
 	 * @return the value
