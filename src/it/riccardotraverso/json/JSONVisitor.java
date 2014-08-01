@@ -6,7 +6,9 @@ public interface JSONVisitor {
 	
 	void visitJSONObject(JSONObject obj);
 	
-	void visitJSONString(JSONString str);
+	void visitJSONString(JSONString el);
+	
+	void visitJSONInteger(JSONInteger el);
 	
 	void visitJSONProperty(JSONObject.Property prop);
 
