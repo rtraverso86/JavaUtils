@@ -1,5 +1,7 @@
 package it.riccardotraverso.json;
 
+import it.riccardotraverso.java.lang.Predicate;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -58,6 +60,22 @@ public class JSONArray<J extends JSON> extends JSON implements Iterable<J> {
 	 */
 	public int size() {
 		return values.size();
+	}
+
+	/**
+	 * Finds and returns the first JSON element in the array which satisfies the
+	 * given predicate.
+	 * 
+	 * @param pred
+	 * @return the first element satisfying pred in the array, or null if any
+	 */
+	public J find(Predicate<J> pred) {
+		for (J value : values) {
+			if (pred.holdsFor(value)) {
+				return value;
+			}
+		}
+		return null;
 	}
 
 	@Override
