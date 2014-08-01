@@ -1,25 +1,24 @@
 package it.riccardotraverso.json;
 
 public class JSONInteger extends JSON {
-	
+
 	private int value;
 
 	public JSONInteger(int value) {
 		this.value = value;
 	}
-	
+
 	public JSONInteger(Integer value) {
 		this.value = value == null ? 0 : value.intValue();
 	}
-	
+
 	public JSONInteger(String value) {
 		this.value = value == null ? 0 : Integer.parseInt(value);
 	}
-	
+
 	public JSONInteger(boolean value) {
 		this.value = value ? 1 : 0;
 	}
-	
 
 	/**
 	 * @return the value
@@ -28,24 +27,30 @@ public class JSONInteger extends JSON {
 		return value;
 	}
 
-
-
 	/**
-	 * @param value the value to set
+	 * @param value
+	 *            the value to set
 	 */
 	public void setValue(int value) {
 		this.value = value;
 	}
-
-
+	
+	public void add(int a) {
+		this.value += a;
+	}
+	
+	public void sub(int a) {
+		this.value -= a;
+	}
 
 	@Override
 	public void accept(JSONVisitor v) {
 		v.visitJSONInteger(this);
 	}
 
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -56,8 +61,9 @@ public class JSONInteger extends JSON {
 		return result;
 	}
 
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -73,11 +79,10 @@ public class JSONInteger extends JSON {
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return Integer.toString(value);
 	}
-	
 
 }
