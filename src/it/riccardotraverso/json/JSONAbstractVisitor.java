@@ -17,6 +17,9 @@ public class JSONAbstractVisitor implements JSONVisitor {
 	
 	@Override
 	public void visitJSONInteger(JSONInteger el) { }
+	
+	@Override
+	public void visitJSONBoolean(JSONBoolean el) { }
 
 	@Override
 	public void visitJSONProperty(Property prop) { }

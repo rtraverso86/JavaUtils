@@ -10,6 +10,8 @@ public interface JSONVisitor {
 	
 	void visitJSONInteger(JSONInteger el);
 	
+	void visitJSONBoolean(JSONBoolean el);
+	
 	void visitJSONProperty(JSONObject.Property prop);
 
 }
