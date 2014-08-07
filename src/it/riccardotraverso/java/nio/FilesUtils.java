@@ -25,5 +25,7 @@ public class FilesUtils {
 		Path p = Paths.get(cl.getResource(path).toURI());
 		return new String(java.nio.file.Files.readAllBytes(p), StandardCharsets.UTF_8);
 	}
+	
+	
 
 }
