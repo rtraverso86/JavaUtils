@@ -11,7 +11,7 @@ A collection of general purpose methods and tools for Java projects.
 Contains many helper classes which are meant to provide support for handling classes of the `java.*` package.
 Some examples of contents in sub-packages are:
 
-- `it.riccardotraverso.java.io`: `CloseableUtils`
+- `it.riccardotraverso.java.io`: `CloseableUtils`, `MultiFileInputStream` 
 - `it.riccardotraverso.java.lang`: `IterableUtils`, `StringUtils`, `Strategy`
 - `it.riccardotraverso.java.nio`: `FilesUtils`
 - `it.riccardotraverso.java.utils`: `ArrayUtils`, `ListUtils`
