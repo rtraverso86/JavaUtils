@@ -7,10 +7,16 @@ public class JSONAbstractVisitor implements JSONVisitor {
 	public JSONAbstractVisitor() { }
 
 	@Override
-	public void visitJSONArray(JSONArray<? extends JSON> arr) { }
+	public void enterJSONArray(JSONArray<? extends JSON> arr) { }
 
 	@Override
-	public void visitJSONObject(JSONObject obj) { }
+	public void exitJSONArray(JSONArray<? extends JSON> arr) { }
+
+	@Override
+	public void enterJSONObject(JSONObject obj) { }
+
+	@Override
+	public void exitJSONObject(JSONObject obj) { } 
 
 	@Override
 	public void visitJSONString(JSONString el) { }
@@ -23,5 +29,6 @@ public class JSONAbstractVisitor implements JSONVisitor {
 
 	@Override
 	public void visitJSONProperty(Property prop) { }
+
 	
 }

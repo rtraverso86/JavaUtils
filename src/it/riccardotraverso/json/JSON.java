@@ -2,30 +2,30 @@ package it.riccardotraverso.json;
 
 public abstract class JSON {
 	
-
-	/**
-	 * Indentation, set by classes from the same package when rendering the
-	 * JSON value via toString().
-	 */
-	String indent = "";
-	static final String SINGLE_INDENT = "  "; 
-
-	
 	public abstract void accept(JSONVisitor v);
 	
-	
-	
-	void appendIndented(StringBuilder builder, Object val) {
-		builder.append(indent);
-		builder.append(val);
+	@Override
+	public String toString() {
+		JSONPrettyPrint pp = new JSONPrettyPrint();
+		this.accept(pp);
+		return pp.prettyPrint();
 	}
 	
-	void increaseIndent() {
-		this.indent += SINGLE_INDENT;
-	}
-	
-	void decreaseIndent() {
-		this.indent = this.indent.substring(SINGLE_INDENT.length());
+	public static void main(String[] args) {
+		JSONArray<JSON> js = new JSONArray<JSON>();
+		JSONObject obj = new JSONObject();
+		obj.setProperty("hello", new JSONString("world"));
+		obj.setProperty("name", new JSONBoolean(false));
+		js.addValue(obj);
+		js.addValue(new JSONInteger(2454));
+		JSONObject obj2 = new JSONObject();
+		obj2.setProperty("b", new JSONString("c"));
+		obj = new JSONObject();
+		obj.setProperty("1", js);
+		obj.setProperty("2", obj2);
+		obj.setProperty("3", new JSONObject());
+		obj.setProperty("4", new JSONArray<JSON>());
+		System.out.println(obj.toString());
 	}
 
 }

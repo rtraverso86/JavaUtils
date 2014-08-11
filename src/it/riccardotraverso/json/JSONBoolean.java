@@ -61,10 +61,6 @@ public class JSONBoolean extends JSON {
 		v.visitJSONBoolean(this);
 	}
 
-	@Override
-	public String toString() {
-		return Boolean.toString(value);
-	}
 
 	/*
 	 * (non-Javadoc)

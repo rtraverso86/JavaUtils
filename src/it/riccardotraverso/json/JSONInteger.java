@@ -80,9 +80,5 @@ public class JSONInteger extends JSON {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return Integer.toString(value);
-	}
 
 }

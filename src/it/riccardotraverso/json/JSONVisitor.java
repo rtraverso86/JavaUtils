@@ -2,9 +2,11 @@ package it.riccardotraverso.json;
 
 public interface JSONVisitor {
 	
-	void visitJSONArray(JSONArray<? extends JSON> arr);
+	void enterJSONArray(JSONArray<? extends JSON> arr);
+	void exitJSONArray(JSONArray<? extends JSON> arr);
 	
-	void visitJSONObject(JSONObject obj);
+	void enterJSONObject(JSONObject obj);
+	void exitJSONObject(JSONObject obj);
 	
 	void visitJSONString(JSONString el);
 	

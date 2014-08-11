@@ -85,33 +85,11 @@ public class JSONArray<J extends JSON> extends JSON implements Iterable<J> {
 	
 	@Override
 	public void accept(JSONVisitor v) {
-		v.visitJSONArray(this);
+		v.enterJSONArray(this);
 		for (J value : values) {
 			value.accept(v);
 		}
+		v.exitJSONArray(this);
 	}
-	
-	@Override
-	public String toString() {
-		boolean removeTrailing = false;
-		StringBuilder builder = new StringBuilder();
-		builder.append("[\n");
-		increaseIndent();
-		for (JSON value : values) {
-			value.indent = this.indent;
-			appendIndented(builder, value.toString());
-			builder.append(",\n");
-			removeTrailing = true;
-		}
-		decreaseIndent();
-		if (removeTrailing) {
-			builder.setLength(builder.length() - 2);
-			builder.append('\n');
-		}
-		appendIndented(builder, "]");
-		return builder.toString();
-	}
-
-	
-	
+		
 }

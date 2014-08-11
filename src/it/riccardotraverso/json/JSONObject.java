@@ -63,11 +63,6 @@ public class JSONObject extends JSON implements Iterable<JSONObject.Property> {
 			value.accept(v);
 		}
 
-		@Override
-		public String toString() {
-			return "\"" + name + "\" : " + value.toString();
-		}
-
 	}
 
 	/** The ordered list of properties of the object */
@@ -143,10 +138,11 @@ public class JSONObject extends JSON implements Iterable<JSONObject.Property> {
 
 	@Override
 	public void accept(JSONVisitor v) {
-		v.visitJSONObject(this);
+		v.enterJSONObject(this);
 		for (Property property : properties) {
 			property.accept(v);
 		}
+		v.exitJSONObject(this);
 	}
 
 	@Override
@@ -154,24 +150,4 @@ public class JSONObject extends JSON implements Iterable<JSONObject.Property> {
 		return properties.iterator();
 	}
 
-	@Override
-	public String toString() {
-		boolean removeTrailing = false;
-		StringBuilder builder = new StringBuilder();
-		builder.append("{\n");
-		increaseIndent();
-		for (Property property : properties) {
-			property.value.indent = this.indent;
-			appendIndented(builder, property.toString());
-			builder.append(",\n");
-			removeTrailing = true;
-		}
-		if (removeTrailing) {
-			builder.setLength(builder.length() - 2);
-			builder.append('\n');
-		}
-		decreaseIndent();
-		appendIndented(builder, "}");
-		return builder.toString();
-	}
 }

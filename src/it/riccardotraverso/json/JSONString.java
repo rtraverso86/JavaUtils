@@ -27,14 +27,6 @@ public class JSONString extends JSON {
 		v.visitJSONString(this);
 	}
 	
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append('"');
-		builder.append(text);
-		builder.append('"');
-		return builder.toString();
-	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
