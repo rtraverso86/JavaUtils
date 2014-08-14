@@ -29,22 +29,7 @@ public class StringUtils {
 	 * @return
 	 */
 	public static String replicate(int n, String s) {
-		java.lang.StringBuilder b = new java.lang.StringBuilder();
-		for (; n > 0; --n) {
-			b.append(s);
-		}
-		return b.toString();
-	}
-
-	/**
-	 * Generates a string composed of n consecutive occurrences of the string s.
-	 * 
-	 * @param n
-	 * @param s
-	 * @return
-	 */
-	public static String replicate(int n, String s) {
-		java.lang.StringBuilder b = new java.lang.StringBuilder();
+		StringBuilder b = new StringBuilder();
 		for (; n > 0; --n) {
 			b.append(s);
 		}
