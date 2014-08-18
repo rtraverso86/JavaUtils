@@ -6,6 +6,8 @@ A collection of general purpose methods and tools for Java projects.
 
 ## Overview of packages
 
+A complete, up-to-date javadoc is available at the address http://rtraverso86.github.io/JavaUtils/.  
+
 ### `it.riccardotraverso.java.*`
 
 Contains many helper classes which are meant to provide support for handling classes of the `java.*` package.
