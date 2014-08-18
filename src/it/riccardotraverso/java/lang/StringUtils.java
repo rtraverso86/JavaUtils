@@ -78,7 +78,9 @@ public class StringUtils {
 			return "";
 		StringBuilder sb = new StringBuilder(arr[0].toString());
 		for (int i = 1; i < arr.length; ++i) {
-			sb.append(separator);
+			if (!isBlank(separator)) {
+				sb.append(separator);
+			}
 			sb.append(arr[i]);
 		}
 		return sb.toString();
@@ -100,7 +102,9 @@ public class StringUtils {
 			return "";
 		StringBuilder sb = new StringBuilder(it.next().toString());
 		while (it.hasNext()) {
-			sb.append(separator);
+			if (!isBlank(separator)) { 
+				sb.append(separator);
+			}
 			sb.append(it.next());
 		}
 		return sb.toString();
