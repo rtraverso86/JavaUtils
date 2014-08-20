@@ -1,5 +1,6 @@
 package it.riccardotraverso.java.lang;
 
+
 public class IterableUtils {
 
 	private IterableUtils() {
