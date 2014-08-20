@@ -95,51 +95,55 @@ public class MultiIterator<E> implements Iterator<E> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public MultiIterator(Iterable<E> i1, Iterable<E> i2) {
-		this.its = (Iterator<E>[]) new Iterator[2];
-		its[0] = i1.iterator();
-		its[1] = i2.iterator();
-	}
-
-	@SuppressWarnings("unchecked")
-	public MultiIterator(Iterable<E> i1, Iterable<E> i2, Iterable<E> i3) {
-		this.its = (Iterator<E>[]) new Iterator[3];
-		its[0] = i1.iterator();
-		its[1] = i2.iterator();
-		its[2] = i3.iterator();
-	}
-
-	@SuppressWarnings("unchecked")
-	public MultiIterator(Iterable<E> i1, Iterable<E> i2, Iterable<E> i3,
-			Iterable<E> i4) {
-		this.its = (Iterator<E>[]) new Iterator[4];
-		its[0] = i1.iterator();
-		its[1] = i2.iterator();
-		its[2] = i3.iterator();
-		its[3] = i4.iterator();
-	}
-
-	@SuppressWarnings("unchecked")
-	public MultiIterator(Iterable<E> i1, Iterable<E> i2, Iterable<E> i3,
-			Iterable<E> i4, Iterable<E> i5) {
-		this.its = (Iterator<E>[]) new Iterator[5];
-		its[0] = i1.iterator();
-		its[1] = i2.iterator();
-		its[2] = i3.iterator();
-		its[3] = i4.iterator();
-		its[4] = i5.iterator();
-	}
-
-	@SuppressWarnings("unchecked")
-	public MultiIterator(Iterable<E> i1, Iterable<E> i2, Iterable<E> i3,
-			Iterable<E> i4, Iterable<E> i5, Iterable<E> i6) {
+	public <E1 extends E, E2 extends E> MultiIterator(
+			Iterable<E1> i1, Iterable<E2> i2) {
 		this.its = (Iterator<E>[]) new Iterator[6];
-		its[0] = i1.iterator();
-		its[1] = i2.iterator();
-		its[2] = i3.iterator();
-		its[3] = i4.iterator();
-		its[4] = i5.iterator();
-		its[5] = i6.iterator();
+		its[0] = (Iterator<E>) i1.iterator();
+		its[1] = (Iterator<E>) i2.iterator();
+	}
+
+	@SuppressWarnings("unchecked")
+	public <E1 extends E, E2 extends E, E3 extends E> MultiIterator(
+			Iterable<E1> i1, Iterable<E2> i2, Iterable<E3> i3) {
+		this.its = (Iterator<E>[]) new Iterator[6];
+		its[0] = (Iterator<E>) i1.iterator();
+		its[1] = (Iterator<E>) i2.iterator();
+		its[2] = (Iterator<E>) i3.iterator();
+	}
+
+	@SuppressWarnings("unchecked")
+	public <E1 extends E, E2 extends E, E3 extends E, E4 extends E> MultiIterator(
+			Iterable<E1> i1, Iterable<E2> i2, Iterable<E3> i3, Iterable<E4> i4) {
+		this.its = (Iterator<E>[]) new Iterator[6];
+		its[0] = (Iterator<E>) i1.iterator();
+		its[1] = (Iterator<E>) i2.iterator();
+		its[2] = (Iterator<E>) i3.iterator();
+		its[3] = (Iterator<E>) i4.iterator();
+	}
+
+	@SuppressWarnings("unchecked")
+	public <E1 extends E, E2 extends E, E3 extends E, E4 extends E, E5 extends E> MultiIterator(
+			Iterable<E1> i1, Iterable<E2> i2, Iterable<E3> i3, Iterable<E4> i4,
+			Iterable<E5> i5) {
+		this.its = (Iterator<E>[]) new Iterator[6];
+		its[0] = (Iterator<E>) i1.iterator();
+		its[1] = (Iterator<E>) i2.iterator();
+		its[2] = (Iterator<E>) i3.iterator();
+		its[3] = (Iterator<E>) i4.iterator();
+		its[4] = (Iterator<E>) i5.iterator();
+	}
+
+	@SuppressWarnings("unchecked")
+	public <E1 extends E, E2 extends E, E3 extends E, E4 extends E, E5 extends E, E6 extends E> MultiIterator(
+			Iterable<E1> i1, Iterable<E2> i2, Iterable<E3> i3, Iterable<E4> i4,
+			Iterable<E5> i5, Iterable<E6> i6) {
+		this.its = (Iterator<E>[]) new Iterator[6];
+		its[0] = (Iterator<E>) i1.iterator();
+		its[1] = (Iterator<E>) i2.iterator();
+		its[2] = (Iterator<E>) i3.iterator();
+		its[3] = (Iterator<E>) i4.iterator();
+		its[4] = (Iterator<E>) i5.iterator();
+		its[5] = (Iterator<E>) i6.iterator();
 	}
 
 	@Override
