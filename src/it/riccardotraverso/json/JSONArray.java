@@ -47,7 +47,6 @@ public class JSONArray<J extends JSON> extends JSON implements Iterable<J> {
 	/**
 	 * Returns an element at a given index. 
 	 * @param index
-	 * @return
 	 */
 	public JSON getValue(int index) {
 		return values.get(index);
@@ -56,7 +55,6 @@ public class JSONArray<J extends JSON> extends JSON implements Iterable<J> {
 	/**
 	 * Returns the number of elements in the array.
 	 * 
-	 * @return
 	 */
 	public int size() {
 		return values.size();

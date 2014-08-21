@@ -148,7 +148,6 @@ public class XmlStringBuilder {
 	 * True iff all opened tags have been closed.
 	 * Once closed, the document cannot be opened again.
 	 * 
-	 * @return
 	 */
 	public boolean isClosed() {
 		return _isClosed;

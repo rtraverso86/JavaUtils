@@ -72,8 +72,6 @@ public class JSONPrettyPrint extends JSONAbstractVisitor {
 	
 	/**
 	 * Returns the visited JSON object as formatted code.
-	 *  
-	 * @return
 	 */
 	public String prettyPrint() {
 		return sb.toString();

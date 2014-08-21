@@ -41,8 +41,6 @@ public class JSONBoolean extends JSON {
 
 	/**
 	 * Same as getValue().
-	 * 
-	 * @return
 	 */
 	public boolean isTrue() {
 		return value;

@@ -13,7 +13,6 @@ public class ArraysUtils {
 	 * 
 	 * @param n
 	 * @param c
-	 * @return
 	 */
 	public static char[] replicate(int n, char c) {
 		char chars[] = new char[n];

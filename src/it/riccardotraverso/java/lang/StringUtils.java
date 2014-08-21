@@ -14,8 +14,9 @@ public class StringUtils {
 	 * Generates a string composed of just n consecutive occurrences of char c.
 	 * 
 	 * @param n
+	 *            the number of repetitions of <code>c</code> 
 	 * @param c
-	 * @return
+	 *            the character to be replicated
 	 */
 	public static String replicate(int n, char c) {
 		return new String(ArraysUtils.replicate(n, c));
@@ -25,8 +26,9 @@ public class StringUtils {
 	 * Generates a string composed of n consecutive occurrences of the string s.
 	 * 
 	 * @param n
+	 *            the number of repetitions of <code>s</code>
 	 * @param s
-	 * @return
+	 *            the string to be repeated
 	 */
 	public static String replicate(int n, String s) {
 		StringBuilder b = new StringBuilder();
@@ -39,8 +41,7 @@ public class StringUtils {
 	/**
 	 * Returns true iff s is either null or the empty string.
 	 * 
-	 * @param s
-	 * @return
+	 * @param s the string to be tested
 	 */
 	public static boolean isBlank(String s) {
 		return s == null || s.isEmpty();
@@ -48,9 +49,6 @@ public class StringUtils {
 
 	/**
 	 * Returns the empty string when s is null, or s as is otherwise.
-	 * 
-	 * @param s
-	 * @return
 	 */
 	public static String nullAsEmpty(String s) {
 		return s == null ? "" : s;
@@ -58,9 +56,6 @@ public class StringUtils {
 
 	/**
 	 * Returns null when s is the empty string, or s as is otherwise.
-	 * 
-	 * @param s
-	 * @return
 	 */
 	public static String emptyAsNull(String s) {
 		return isBlank(s) ? null : s;
@@ -70,8 +65,10 @@ public class StringUtils {
 	 * Joins into a string an array of objects by using a separator.
 	 * 
 	 * @param arr
+	 *            the array of elements to be converted in strings and joined
+	 *            together
 	 * @param separator
-	 * @return
+	 *            the separator to put in between any two adjacent strings
 	 */
 	public static String join(Object[] arr, String separator) {
 		if (arr == null || arr.length < 1)
@@ -91,8 +88,10 @@ public class StringUtils {
 	 * separator.
 	 * 
 	 * @param coll
+	 *            the collection of elements to be converted in strings and
+	 *            joined together
 	 * @param separator
-	 * @return
+	 *            the separator to put in between any two adjacent strings*
 	 */
 	public static <T> String join(Iterable<T> coll, String separator) {
 		if (coll == null)
@@ -114,7 +113,7 @@ public class StringUtils {
 	 * Capitalizes the very first character of a given string.
 	 * 
 	 * @param s
-	 * @return
+	 *            the string to be capitalized
 	 */
 	public static String capitalize(String s) {
 		if (s == null || s.isEmpty())

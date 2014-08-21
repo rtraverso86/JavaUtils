@@ -1,5 +1,11 @@
 package it.riccardotraverso.java.lang;
 
+/**
+ * Offers the same services as a {@link java.lang.StringBuilder} (via
+ * delegation), but adds a few methods to manage indentation levels. Useful to
+ * print out code.
+ * 
+ */
 public class StringBuilderIndent implements java.io.Serializable,
 		java.lang.CharSequence {
 
@@ -20,6 +26,7 @@ public class StringBuilderIndent implements java.io.Serializable,
 	 * Generate a new StringBuilder with default indentation at 4 spaces.
 	 */
 	public StringBuilderIndent() {
+		super();
 	}
 
 	/**
@@ -37,8 +44,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	//
 
 	/**
-	 * @param b
-	 * @return
 	 * @see java.lang.StringBuilder#append(boolean)
 	 */
 	public StringBuilderIndent append(boolean b) {
@@ -47,8 +52,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param c
-	 * @return
 	 * @see java.lang.StringBuilder#append(char)
 	 */
 	public StringBuilderIndent append(char c) {
@@ -59,10 +62,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param str
-	 * @param offset
-	 * @param len
-	 * @return
 	 * @see java.lang.StringBuilder#append(char[], int, int)
 	 */
 	public StringBuilderIndent append(char[] str, int offset, int len) {
@@ -83,8 +82,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param str
-	 * @return
 	 * @see java.lang.StringBuilder#append(char[])
 	 */
 	public StringBuilderIndent append(char[] str) {
@@ -95,10 +92,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param s
-	 * @param start
-	 * @param end
-	 * @return
 	 * @see java.lang.StringBuilder#append(java.lang.CharSequence, int, int)
 	 */
 	public StringBuilderIndent append(CharSequence s, int start, int end) {
@@ -109,8 +102,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param s
-	 * @return
 	 * @see java.lang.StringBuilder#append(java.lang.CharSequence)
 	 */
 	public StringBuilderIndent append(CharSequence s) {
@@ -121,8 +112,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param d
-	 * @return
 	 * @see java.lang.StringBuilder#append(double)
 	 */
 	public StringBuilderIndent append(double d) {
@@ -131,8 +120,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param f
-	 * @return
 	 * @see java.lang.StringBuilder#append(float)
 	 */
 	public StringBuilderIndent append(float f) {
@@ -141,8 +128,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param i
-	 * @return
 	 * @see java.lang.StringBuilder#append(int)
 	 */
 	public StringBuilderIndent append(int i) {
@@ -151,8 +136,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param lng
-	 * @return
 	 * @see java.lang.StringBuilder#append(long)
 	 */
 	public StringBuilderIndent append(long lng) {
@@ -161,8 +144,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param obj
-	 * @return
 	 * @see java.lang.StringBuilder#append(java.lang.Object)
 	 */
 	public StringBuilderIndent append(Object obj) {
@@ -171,8 +152,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param str
-	 * @return
 	 * @see java.lang.StringBuilder#append(java.lang.String)
 	 */
 	public StringBuilderIndent append(String str) {
@@ -181,8 +160,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param sb
-	 * @return
 	 * @see java.lang.StringBuilder#append(java.lang.StringBuffer)
 	 */
 	public StringBuilderIndent append(StringBuffer sb) {
@@ -191,7 +168,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @return
 	 * @see java.lang.AbstractStringBuilder#capacity()
 	 */
 	public int capacity() {
@@ -199,9 +175,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param start
-	 * @param end
-	 * @return
 	 * @see java.lang.StringBuilder#delete(int, int)
 	 */
 	public StringBuilderIndent delete(int start, int end) {
@@ -210,8 +183,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param index
-	 * @return
 	 * @see java.lang.StringBuilder#deleteCharAt(int)
 	 */
 	public StringBuilderIndent deleteCharAt(int index) {
@@ -220,7 +191,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param arg0
 	 * @see java.lang.AbstractStringBuilder#ensureCapacity(int)
 	 */
 	public void ensureCapacity(int arg0) {
@@ -228,10 +198,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param arg0
-	 * @param arg1
-	 * @param arg2
-	 * @param arg3
 	 * @see java.lang.AbstractStringBuilder#getChars(int, int, char[], int)
 	 */
 	public void getChars(int arg0, int arg1, char[] arg2, int arg3) {
@@ -239,9 +205,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param str
-	 * @param fromIndex
-	 * @return
 	 * @see java.lang.StringBuilder#indexOf(java.lang.String, int)
 	 */
 	public int indexOf(String str, int fromIndex) {
@@ -249,8 +212,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param str
-	 * @return
 	 * @see java.lang.StringBuilder#indexOf(java.lang.String)
 	 */
 	public int indexOf(String str) {
@@ -258,9 +219,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param str
-	 * @param fromIndex
-	 * @return
 	 * @see java.lang.StringBuilder#lastIndexOf(java.lang.String, int)
 	 */
 	public int lastIndexOf(String str, int fromIndex) {
@@ -268,8 +226,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param str
-	 * @return
 	 * @see java.lang.StringBuilder#lastIndexOf(java.lang.String)
 	 */
 	public int lastIndexOf(String str) {
@@ -277,7 +233,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param arg0
 	 * @see java.lang.AbstractStringBuilder#setLength(int)
 	 */
 	public void setLength(int arg0) {
@@ -285,9 +240,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param arg0
-	 * @param arg1
-	 * @return
 	 * @see java.lang.AbstractStringBuilder#substring(int, int)
 	 */
 	public String substring(int arg0, int arg1) {
@@ -295,8 +247,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @param arg0
-	 * @return
 	 * @see java.lang.AbstractStringBuilder#substring(int)
 	 */
 	public String substring(int arg0) {
@@ -304,7 +254,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @return
 	 * @see java.lang.StringBuilder#toString()
 	 */
 	public String toString() {
@@ -312,7 +261,6 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * 
 	 * @see java.lang.AbstractStringBuilder#trimToSize()
 	 */
 	public void trimToSize() {
@@ -323,12 +271,28 @@ public class StringBuilderIndent implements java.io.Serializable,
 	// Specific methods
 	//
 
+	/**
+	 * Adds one level of indentation. It only affects subsequent calls to {@link #newLine()}.
+	 * 
+	 * @return the <code>StringBuilder</code> itself
+	 * @see #unindent()
+	 * @see #getIndentationLevel()
+	 * @see #newLine()
+	 */
 	public StringBuilderIndent indent() {
 		this.indentationLevel++;
 		this.currentIndentation += indentation;
 		return this;
 	}
 
+	/**
+	 * Removes one level of indentation. It only affects subsequent calls to {@link #newLine()}.
+	 * 
+	 * @return the <code>StringBuilder</code> itself
+	 * @see #indent()
+	 * @see #getIndentationLevel()
+	 * @see #newLine()
+	 */
 	public StringBuilderIndent unindent() {
 		if (indentationLevel > 0) {
 			indentationLevel--;
@@ -339,16 +303,30 @@ public class StringBuilderIndent implements java.io.Serializable,
 	}
 
 	/**
-	 * @return the indentationLevel
+	 * Returns a natural value representing the current amount of indentation,
+	 * i.e. the number of times the indentation string (see
+	 * {@link #StringBuilderIndent(String)}) will be printed after each call to
+	 * {@link #newLine()}.
+	 * 
+	 * @return the indentation level
+	 * @see #indent()
+	 * @see #unindent()
+	 * @see #newLine()
 	 */
 	public int getIndentationLevel() {
 		return indentationLevel;
 	}
 
 	/**
-	 * Goes to a new line, adding appropriate indentation as needed.
+	 * Adds a {@link #NEWLINE} to the string being built, appending appropriate
+	 * indentation as needed. The amount indentation is
+	 * {@link #getIndentationLevel()} times the indentation string (see
+	 * {@link #StringBuilderIndent(String)}).
 	 * 
 	 * @return this object
+	 * @see #indent()
+	 * @see #unindent()
+	 * @see #getIndentationLevel()
 	 */
 	public StringBuilderIndent newLine() {
 		_b.append(NEWLINE);
@@ -362,21 +340,23 @@ public class StringBuilderIndent implements java.io.Serializable,
 	//
 
 	/**
-	 * @param index
+	 * @see java.lang.CharSequence#charAt(int)
 	 */
 	@Override
 	public char charAt(int index) {
 		return _b.charAt(index);
 	}
 
+	/**
+	 * @see java.lang.CharSequence#length()
+	 */
 	@Override
 	public int length() {
 		return _b.length();
 	}
 
 	/**
-	 * @param start
-	 * @param end
+	 * @see java.lang.CharSequence#subSequence(int, int)
 	 */
 	@Override
 	public CharSequence subSequence(int start, int end) {

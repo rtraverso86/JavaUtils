@@ -12,7 +12,6 @@ public abstract class Strategy<I, O> {
 	 * Executes the strategy on the given input.
 	 * 
 	 * @param input
-	 * @return
 	 */
 	public final O execute(I input) {
 		this.lastResult = apply(input);
@@ -23,15 +22,11 @@ public abstract class Strategy<I, O> {
 	 * Performs the real computation of the strategy. This method is called by
 	 * execute(), which is in charge of also remembering the last value produced
 	 * by apply().
-	 * 
-	 * @return
 	 */
 	protected abstract O apply(I input);
 
 	/**
 	 * Gets the latest computed result of execute().
-	 * 
-	 * @return
 	 */
 	public final O getLastResult() {
 		return this.lastResult;

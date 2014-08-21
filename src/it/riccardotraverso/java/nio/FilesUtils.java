@@ -16,7 +16,6 @@ public class FilesUtils {
 	 * Returns a string with the contents of the specified resource file.  
 	 * 
 	 * @param path the path to the resource file to read
-	 * @return
 	 * @throws URISyntaxException
 	 * @throws IOException
 	 */
