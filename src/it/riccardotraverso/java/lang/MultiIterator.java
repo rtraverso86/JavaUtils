@@ -53,20 +53,16 @@ public class MultiIterator<E> implements Iterator<E> {
 	 * .
 	 * 
 	 * @param i1
-	 *            The first iterator, of type
-	 *            <code>Iterator&lt;E1 extends E&gt;</code>.
+	 *            The first iterator
 	 * @param i2
-	 *            The second iterator, of type
-	 *            <code>Iterator&lt;E2 extends E&gt;</code>.
+	 *            The second iterator
 	 */
 	@SuppressWarnings("unchecked")
-	public <E1 extends E, E2 extends E> MultiIterator(Iterator<E1> i1,
-			Iterator<E2> i2) {
+	public MultiIterator(Iterator<? extends E> i1, Iterator<? extends E> i2) {
 		this.its = (Iterator<E>[]) new Iterator[2];
 		its[0] = (Iterator<E>) i1;
 		its[1] = (Iterator<E>) i2;
 	}
-
 
 	/**
 	 * Creates a new <code>MultiIterator&lt;E&gt;</code> by taking in individual
@@ -74,19 +70,17 @@ public class MultiIterator<E> implements Iterator<E> {
 	 * (possibly different) type parameter which is a subclass of <code>E</code>
 	 * .
 	 * 
+	 * 
 	 * @param i1
-	 *            The first iterator, of type
-	 *            <code>Iterator&lt;E1 extends E&gt;</code>.
+	 *            The first iterator
 	 * @param i2
-	 *            The second iterator, of type
-	 *            <code>Iterator&lt;E2 extends E&gt;</code>.
+	 *            The second iterator
 	 * @param i3
-	 *            The third iterator, of type
-	 *            <code>Iterator&lt;E3 extends E&gt;</code>.
+	 *            The third iterator
 	 */
 	@SuppressWarnings("unchecked")
-	public <E1 extends E, E2 extends E, E3 extends E> MultiIterator(
-			Iterator<E1> i1, Iterator<E2> i2, Iterator<E3> i3) {
+	public MultiIterator(Iterator<? extends E> i1, Iterator<? extends E> i2,
+			Iterator<? extends E> i3) {
 		this.its = (Iterator<E>[]) new Iterator[3];
 		its[0] = (Iterator<E>) i1;
 		its[1] = (Iterator<E>) i2;
@@ -100,21 +94,17 @@ public class MultiIterator<E> implements Iterator<E> {
 	 * .
 	 * 
 	 * @param i1
-	 *            The first iterator, of type
-	 *            <code>Iterator&lt;E1 extends E&gt;</code>.
+	 *            The first iterator
 	 * @param i2
-	 *            The second iterator, of type
-	 *            <code>Iterator&lt;E2 extends E&gt;</code>.
+	 *            The second iterator
 	 * @param i3
-	 *            The third iterator, of type
-	 *            <code>Iterator&lt;E3 extends E&gt;</code>.
+	 *            The third iterator
 	 * @param i4
-	 *            The fourth iterator, of type
-	 *            <code>Iterator&lt;E4 extends E&gt;</code>.
+	 *            The fourth iterator
 	 */
 	@SuppressWarnings("unchecked")
-	public <E1 extends E, E2 extends E, E3 extends E, E4 extends E> MultiIterator(
-			Iterator<E1> i1, Iterator<E2> i2, Iterator<E3> i3, Iterator<E4> i4) {
+	public MultiIterator(Iterator<? extends E> i1, Iterator<? extends E> i2,
+			Iterator<? extends E> i3, Iterator<? extends E> i4) {
 		this.its = (Iterator<E>[]) new Iterator[4];
 		its[0] = (Iterator<E>) i1;
 		its[1] = (Iterator<E>) i2;
@@ -129,25 +119,20 @@ public class MultiIterator<E> implements Iterator<E> {
 	 * .
 	 * 
 	 * @param i1
-	 *            The first iterator, of type
-	 *            <code>Iterator&lt;E1 extends E&gt;</code>.
+	 *            The first iterator
 	 * @param i2
-	 *            The second iterator, of type
-	 *            <code>Iterator&lt;E2 extends E&gt;</code>.
+	 *            The second iterator
 	 * @param i3
-	 *            The third iterator, of type
-	 *            <code>Iterator&lt;E3 extends E&gt;</code>.
+	 *            The third iterator
 	 * @param i4
-	 *            The fourth iterator, of type
-	 *            <code>Iterator&lt;E4 extends E&gt;</code>.
+	 *            The fourth iterator
 	 * @param i5
-	 *            The fifth iterator, of type
-	 *            <code>Iterator&lt;E5 extends E&gt;</code>.
+	 *            The fifth iterator
 	 */
 	@SuppressWarnings("unchecked")
-	public <E1 extends E, E2 extends E, E3 extends E, E4 extends E, E5 extends E> MultiIterator(
-			Iterator<E1> i1, Iterator<E2> i2, Iterator<E3> i3, Iterator<E4> i4,
-			Iterator<E5> i5) {
+	public MultiIterator(Iterator<? extends E> i1, Iterator<? extends E> i2,
+			Iterator<? extends E> i3, Iterator<? extends E> i4,
+			Iterator<? extends E> i5) {
 		this.its = (Iterator<E>[]) new Iterator[5];
 		its[0] = (Iterator<E>) i1;
 		its[1] = (Iterator<E>) i2;
@@ -163,28 +148,22 @@ public class MultiIterator<E> implements Iterator<E> {
 	 * .
 	 * 
 	 * @param i1
-	 *            The first iterator, of type
-	 *            <code>Iterator&lt;E1 extends E&gt;</code>.
+	 *            The first iterator
 	 * @param i2
-	 *            The second iterator, of type
-	 *            <code>Iterator&lt;E2 extends E&gt;</code>.
+	 *            The second iterator
 	 * @param i3
-	 *            The third iterator, of type
-	 *            <code>Iterator&lt;E3 extends E&gt;</code>.
+	 *            The third iterator
 	 * @param i4
-	 *            The fourth iterator, of type
-	 *            <code>Iterator&lt;E4 extends E&gt;</code>.
+	 *            The fourth iterator
 	 * @param i5
-	 *            The fifth iterator, of type
-	 *            <code>Iterator&lt;E5 extends E&gt;</code>.
+	 *            The fifth iterator
 	 * @param i6
-	 *            The sixth iterator, of type
-	 *            <code>Iterator&lt;E6 extends E&gt;</code>.
+	 *            The sixth iterator
 	 */
 	@SuppressWarnings("unchecked")
-	public <E1 extends E, E2 extends E, E3 extends E, E4 extends E, E5 extends E, E6 extends E> MultiIterator(
-			Iterator<E1> i1, Iterator<E2> i2, Iterator<E3> i3, Iterator<E4> i4,
-			Iterator<E5> i5, Iterator<E6> i6) {
+	public MultiIterator(Iterator<? extends E> i1, Iterator<? extends E> i2,
+			Iterator<? extends E> i3, Iterator<? extends E> i4,
+			Iterator<? extends E> i5, Iterator<? extends E> i6) {
 		this.its = (Iterator<E>[]) new Iterator[6];
 		its[0] = (Iterator<E>) i1;
 		its[1] = (Iterator<E>) i2;
@@ -193,7 +172,7 @@ public class MultiIterator<E> implements Iterator<E> {
 		its[4] = (Iterator<E>) i5;
 		its[5] = (Iterator<E>) i6;
 	}
-	
+
 	/**
 	 * Creates a new <code>MultiIterator&lt;E&gt;</code> by taking in individual
 	 * iterators in a sequence, such that each one is instantiated on a
@@ -201,31 +180,25 @@ public class MultiIterator<E> implements Iterator<E> {
 	 * .
 	 * 
 	 * @param i1
-	 *            The first iterator, of type
-	 *            <code>Iterator&lt;E1 extends E&gt;</code>.
+	 *            The first iterator
 	 * @param i2
-	 *            The second iterator, of type
-	 *            <code>Iterator&lt;E2 extends E&gt;</code>.
+	 *            The second iterator
 	 * @param i3
-	 *            The third iterator, of type
-	 *            <code>Iterator&lt;E3 extends E&gt;</code>.
+	 *            The third iterator
 	 * @param i4
-	 *            The fourth iterator, of type
-	 *            <code>Iterator&lt;E4 extends E&gt;</code>.
+	 *            The fourth iterator
 	 * @param i5
-	 *            The fifth iterator, of type
-	 *            <code>Iterator&lt;E5 extends E&gt;</code>.
+	 *            The fifth iterator
 	 * @param i6
-	 *            The sixth iterator, of type
-	 *            <code>Iterator&lt;E6 extends E&gt;</code>.
+	 *            The sixth iterator
 	 * @param i7
-	 *            The seventh iterator, of type
-	 *            <code>Iterator&lt;E7 extends E&gt;</code>.
+	 *            The seventh iterator
 	 */
 	@SuppressWarnings("unchecked")
-	public <E1 extends E, E2 extends E, E3 extends E, E4 extends E, E5 extends E, E6 extends E, E7 extends E> MultiIterator(
-			Iterator<E1> i1, Iterator<E2> i2, Iterator<E3> i3, Iterator<E4> i4,
-			Iterator<E5> i5, Iterator<E6> i6, Iterator<E7> i7) {
+	public MultiIterator(Iterator<? extends E> i1, Iterator<? extends E> i2,
+			Iterator<? extends E> i3, Iterator<? extends E> i4,
+			Iterator<? extends E> i5, Iterator<? extends E> i6,
+			Iterator<? extends E> i7) {
 		this.its = (Iterator<E>[]) new Iterator[7];
 		its[0] = (Iterator<E>) i1;
 		its[1] = (Iterator<E>) i2;
@@ -273,15 +246,12 @@ public class MultiIterator<E> implements Iterator<E> {
 	 * .
 	 * 
 	 * @param i1
-	 *            The first iterable, of type
-	 *            <code>Iterable&lt;E1 extends E&gt;</code>.
+	 *            The first iterable
 	 * @param i2
-	 *            The second iterable, of type
-	 *            <code>Iterable&lt;E2 extends E&gt;</code>.
+	 *            The second iterable
 	 */
 	@SuppressWarnings("unchecked")
-	public <E1 extends E, E2 extends E> MultiIterator(
-			Iterable<E1> i1, Iterable<E2> i2) {
+	public MultiIterator(Iterable<? extends E> i1, Iterable<? extends E> i2) {
 		this.its = (Iterator<E>[]) new Iterator[2];
 		its[0] = (Iterator<E>) i1.iterator();
 		its[1] = (Iterator<E>) i2.iterator();
@@ -294,18 +264,15 @@ public class MultiIterator<E> implements Iterator<E> {
 	 * .
 	 * 
 	 * @param i1
-	 *            The first iterable, of type
-	 *            <code>Iterable&lt;E1 extends E&gt;</code>.
+	 *            The first iterable
 	 * @param i2
-	 *            The second iterable, of type
-	 *            <code>Iterable&lt;E2 extends E&gt;</code>.
+	 *            The second iterable
 	 * @param i3
-	 *            The third iterable, of type
-	 *            <code>Iterable&lt;E3 extends E&gt;</code>.
+	 *            The third iterable
 	 */
 	@SuppressWarnings("unchecked")
-	public <E1 extends E, E2 extends E, E3 extends E> MultiIterator(
-			Iterable<E1> i1, Iterable<E2> i2, Iterable<E3> i3) {
+	public  MultiIterator(
+			Iterable<? extends E> i1, Iterable<? extends E> i2, Iterable<? extends E> i3) {
 		this.its = (Iterator<E>[]) new Iterator[3];
 		its[0] = (Iterator<E>) i1.iterator();
 		its[1] = (Iterator<E>) i2.iterator();
@@ -319,21 +286,17 @@ public class MultiIterator<E> implements Iterator<E> {
 	 * .
 	 * 
 	 * @param i1
-	 *            The first iterable, of type
-	 *            <code>Iterable&lt;E1 extends E&gt;</code>.
+	 *            The first iterable
 	 * @param i2
-	 *            The second iterable, of type
-	 *            <code>Iterable&lt;E2 extends E&gt;</code>.
+	 *            The second iterable
 	 * @param i3
-	 *            The third iterable, of type
-	 *            <code>Iterable&lt;E3 extends E&gt;</code>.
+	 *            The third iterable
 	 * @param i4
-	 *            The fourth iterable, of type
-	 *            <code>Iterable&lt;E4 extends E&gt;</code>.
+	 *            The fourth iterable
 	 */
 	@SuppressWarnings("unchecked")
-	public <E1 extends E, E2 extends E, E3 extends E, E4 extends E> MultiIterator(
-			Iterable<E1> i1, Iterable<E2> i2, Iterable<E3> i3, Iterable<E4> i4) {
+	public MultiIterator(Iterable<? extends E> i1, Iterable<? extends E> i2,
+			Iterable<? extends E> i3, Iterable<? extends E> i4) {
 		this.its = (Iterator<E>[]) new Iterator[4];
 		its[0] = (Iterator<E>) i1.iterator();
 		its[1] = (Iterator<E>) i2.iterator();
@@ -348,25 +311,20 @@ public class MultiIterator<E> implements Iterator<E> {
 	 * .
 	 * 
 	 * @param i1
-	 *            The first iterable, of type
-	 *            <code>Iterable&lt;E1 extends E&gt;</code>.
+	 *            The first iterable
 	 * @param i2
-	 *            The second iterable, of type
-	 *            <code>Iterable&lt;E2 extends E&gt;</code>.
+	 *            The second iterable
 	 * @param i3
-	 *            The third iterable, of type
-	 *            <code>Iterable&lt;E3 extends E&gt;</code>.
+	 *            The third iterable
 	 * @param i4
-	 *            The fourth iterable, of type
-	 *            <code>Iterable&lt;E4 extends E&gt;</code>.
+	 *            The fourth iterable
 	 * @param i5
-	 *            The fifth iterable, of type
-	 *            <code>Iterable&lt;E5 extends E&gt;</code>.
+	 *            The fifth iterable
 	 */
 	@SuppressWarnings("unchecked")
-	public <E1 extends E, E2 extends E, E3 extends E, E4 extends E, E5 extends E> MultiIterator(
-			Iterable<E1> i1, Iterable<E2> i2, Iterable<E3> i3, Iterable<E4> i4,
-			Iterable<E5> i5) {
+	public MultiIterator(Iterable<? extends E> i1, Iterable<? extends E> i2,
+			Iterable<? extends E> i3, Iterable<? extends E> i4,
+			Iterable<? extends E> i5) {
 		this.its = (Iterator<E>[]) new Iterator[5];
 		its[0] = (Iterator<E>) i1.iterator();
 		its[1] = (Iterator<E>) i2.iterator();
@@ -382,28 +340,22 @@ public class MultiIterator<E> implements Iterator<E> {
 	 * .
 	 * 
 	 * @param i1
-	 *            The first iterable, of type
-	 *            <code>Iterable&lt;E1 extends E&gt;</code>.
+	 *            The first iterable
 	 * @param i2
-	 *            The second iterable, of type
-	 *            <code>Iterable&lt;E2 extends E&gt;</code>.
+	 *            The second iterable
 	 * @param i3
-	 *            The third iterable, of type
-	 *            <code>Iterable&lt;E3 extends E&gt;</code>.
+	 *            The third iterable
 	 * @param i4
-	 *            The fourth iterable, of type
-	 *            <code>Iterable&lt;E4 extends E&gt;</code>.
+	 *            The fourth iterable
 	 * @param i5
-	 *            The fifth iterable, of type
-	 *            <code>Iterable&lt;E5 extends E&gt;</code>.
+	 *            The fifth iterable
 	 * @param i6
-	 *            The sixth iterable, of type
-	 *            <code>Iterable&lt;E6 extends E&gt;</code>.
+	 *            The sixth iterable
 	 */
 	@SuppressWarnings("unchecked")
-	public <E1 extends E, E2 extends E, E3 extends E, E4 extends E, E5 extends E, E6 extends E> MultiIterator(
-			Iterable<E1> i1, Iterable<E2> i2, Iterable<E3> i3, Iterable<E4> i4,
-			Iterable<E5> i5, Iterable<E6> i6) {
+	public MultiIterator(Iterable<? extends E> i1, Iterable<? extends E> i2,
+			Iterable<? extends E> i3, Iterable<? extends E> i4,
+			Iterable<? extends E> i5, Iterable<? extends E> i6) {
 		this.its = (Iterator<E>[]) new Iterator[6];
 		its[0] = (Iterator<E>) i1.iterator();
 		its[1] = (Iterator<E>) i2.iterator();
@@ -420,31 +372,25 @@ public class MultiIterator<E> implements Iterator<E> {
 	 * .
 	 * 
 	 * @param i1
-	 *            The first iterable, of type
-	 *            <code>Iterable&lt;E1 extends E&gt;</code>.
+	 *            The first iterable
 	 * @param i2
-	 *            The second iterable, of type
-	 *            <code>Iterable&lt;E2 extends E&gt;</code>.
+	 *            The second iterable
 	 * @param i3
-	 *            The third iterable, of type
-	 *            <code>Iterable&lt;E3 extends E&gt;</code>.
+	 *            The third iterable
 	 * @param i4
-	 *            The fourth iterable, of type
-	 *            <code>Iterable&lt;E4 extends E&gt;</code>.
+	 *            The fourth iterable
 	 * @param i5
-	 *            The fifth iterable, of type
-	 *            <code>Iterable&lt;E5 extends E&gt;</code>.
+	 *            The fifth iterable
 	 * @param i6
-	 *            The sixth iterable, of type
-	 *            <code>Iterable&lt;E6 extends E&gt;</code>.
+	 *            The sixth iterable
 	 * @param i7
-	 *            The seventh iterable, of type
-	 *            <code>Iterable&lt;E7 extends E&gt;</code>.
+	 *            The seventh iterable
 	 */
 	@SuppressWarnings("unchecked")
-	public <E1 extends E, E2 extends E, E3 extends E, E4 extends E, E5 extends E, E6 extends E, E7 extends E> MultiIterator(
-			Iterable<E1> i1, Iterable<E2> i2, Iterable<E3> i3, Iterable<E4> i4,
-			Iterable<E5> i5, Iterable<E6> i6, Iterable<E7> i7) {
+	public MultiIterator(Iterable<? extends E> i1, Iterable<? extends E> i2,
+			Iterable<? extends E> i3, Iterable<? extends E> i4,
+			Iterable<? extends E> i5, Iterable<? extends E> i6,
+			Iterable<? extends E> i7) {
 		this.its = (Iterator<E>[]) new Iterator[7];
 		its[0] = (Iterator<E>) i1.iterator();
 		its[1] = (Iterator<E>) i2.iterator();
