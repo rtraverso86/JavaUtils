@@ -20,6 +20,8 @@
 
 package it.riccardotraverso.java.util;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -28,10 +30,10 @@ public class ListUtils {
 	private ListUtils() {
 		// Not instantiable class
 	}
-	
+
 	/**
-	 * It copies list src onto dst in reversed order, eventually clearing
-	 * the destination list dst beforehand.
+	 * It copies list src onto dst in reversed order, eventually clearing the
+	 * destination list dst beforehand.
 	 * 
 	 * @param src
 	 * @param dst
@@ -43,6 +45,34 @@ public class ListUtils {
 		while (lstIt.hasPrevious()) {
 			dst.add(lstIt.previous());
 		}
+	}
+
+	/**
+	 * Creates a shuffled list where each and every number in the range between
+	 * <code>min</code> and <code>max</code> appear exactly once.
+	 * 
+	 * @param min
+	 * @param max
+	 */
+	public static List<Integer> pickNDistinctRandom(int min, int max) {
+		ArrayList<Integer> result = new ArrayList<Integer>(max - min + 1);
+		while (min++ < max) {
+			result.add(min);
+		}
+		Collections.shuffle(result);
+		return result;
+	}
+
+	/**
+	 * Picks <code>count</code> distinct random numbers in the range between
+	 * <code>min</code> and <code>max</code>, included.
+	 * 
+	 * @param min
+	 * @param max
+	 * @param count
+	 */
+	public static List<Integer> pickNDistinctRandom(int min, int max, int count) {
+		return pickNDistinctRandom(min, max).subList(0, count);
 	}
 
 }
