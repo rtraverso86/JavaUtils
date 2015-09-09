@@ -117,7 +117,7 @@ public class JSONPrettyPrint extends JSONAbstractVisitor {
 			addSpacing();
 		} else if (indent > 0) {
 			indent--;
-			sb.setLength(limit);
+			sb.setLength(limit+1);
 		}
 	}
 
