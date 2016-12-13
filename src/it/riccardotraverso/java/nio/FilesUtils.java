@@ -19,11 +19,11 @@
  */
 package it.riccardotraverso.java.nio;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URISyntaxException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class FilesUtils {
 
@@ -40,8 +40,16 @@ public class FilesUtils {
 	 */
 	public static String readResourceAsText(String path) throws URISyntaxException, IOException {
 		ClassLoader cl = FilesUtils.class.getClassLoader();
-		Path p = Paths.get(cl.getResource(path).toURI());
-		return new String(java.nio.file.Files.readAllBytes(p), StandardCharsets.UTF_8);
+		InputStream in = cl.getResourceAsStream(path);
+		BufferedReader r = new BufferedReader(new InputStreamReader(in));
+		StringBuilder sb = new StringBuilder();
+		int ch;
+		while ((ch = r.read()) != -1) {
+			sb.appendCodePoint(ch);
+		}
+		return sb.toString();
+//		Path p = Paths.get(cl.getResource(path).toURI());
+//		return new String(java.nio.file.Files.readAllBytes(p), StandardCharsets.UTF_8);
 	}
 	
 	
