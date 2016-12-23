@@ -23,7 +23,14 @@ package it.riccardotraverso.json;
 import it.riccardotraverso.java.util.ArraysUtils;
 import it.riccardotraverso.json.JSONObject.Property;
 
-public class JSONPrettyPrint extends JSONAbstractVisitor {
+/**
+ * Converts a {@link JSON} into a human-readable formatted JSON string. It is
+ * not suggested to use directly this class, but rather to rely on the simpler
+ * {@link JSON#toString()} method.
+ * 
+ * @see JSON#toString()
+ */
+public class JSONPrettyPrint extends JSONVisitorAdapter {
 	
 	private StringBuilder sb = new StringBuilder();
 	private int indent = 0;

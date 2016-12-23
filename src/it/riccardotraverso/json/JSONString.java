@@ -20,23 +20,31 @@
 
 package it.riccardotraverso.json;
 
+/**
+ * A JSON string value. 
+ */
 public class JSONString extends JSON {
 	
 	private String text;
 
+	/**
+	 * Creates a new JSON string.
+	 * 
+	 * @param value
+	 */
 	public JSONString(String value) {
 		this.text = value;
 	}
 
 	/**
-	 * @return the text
+	 * Returns the string being represented.
 	 */
 	public String getText() {
 		return text;
 	}
 
 	/**
-	 * @param text the text to set
+	 * Sets a new string to be represented.
 	 */
 	public void setText(String text) {
 		this.text = text;

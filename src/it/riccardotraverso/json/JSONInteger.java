@@ -20,27 +20,56 @@
 
 package it.riccardotraverso.json;
 
+import com.sun.org.apache.bcel.internal.classfile.Code;
+
+/**
+ * A JSON integer value.
+ */
 public class JSONInteger extends JSON {
 
 	private int value;
 
+	/**
+	 * Creates a new integer JSON value.
+	 * 
+	 * @param value
+	 */
 	public JSONInteger(int value) {
 		this.value = value;
 	}
 
+	/**
+	 * Creates a new integer JSON value.
+	 * 
+	 * @param value
+	 */
 	public JSONInteger(Integer value) {
 		this.value = value == null ? 0 : value.intValue();
 	}
 
+	/**
+	 * Creates a new integer JSON value.
+	 * 
+	 * @param value
+	 */
 	public JSONInteger(String value) {
 		this.value = value == null ? 0 : Integer.parseInt(value);
 	}
 
+	/**
+	 * Creates a new integer JSON value.
+	 * 
+	 * @param value
+	 *            the boolean value to be converted to JSON integer, where true
+	 *            is 1 and false is 0.
+	 */
 	public JSONInteger(boolean value) {
 		this.value = value ? 1 : 0;
 	}
 
 	/**
+	 * Returns the integer value being represented.
+	 * 
 	 * @return the value
 	 */
 	public int getValue() {
@@ -48,17 +77,31 @@ public class JSONInteger extends JSON {
 	}
 
 	/**
+	 * Sets the integer value being represented.
+	 * 
 	 * @param value
 	 *            the value to set
 	 */
 	public void setValue(int value) {
 		this.value = value;
 	}
-	
+
+	/**
+	 * Adds {@code a} to the current value being represented.
+	 * 
+	 * @param a
+	 *            the increment
+	 */
 	public void add(int a) {
 		this.value += a;
 	}
-	
+
+	/**
+	 * Subtracts {@code a} from the current value being represented.
+	 * 
+	 * @param a
+	 *            the decrement
+	 */
 	public void sub(int a) {
 		this.value -= a;
 	}
@@ -99,6 +142,5 @@ public class JSONInteger extends JSON {
 			return false;
 		return true;
 	}
-
 
 }

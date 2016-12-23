@@ -25,6 +25,13 @@ import it.riccardotraverso.java.lang.Predicate;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * A JSON array containing elements of type {@code <J>}.
+ * 
+ * @param <J>
+ *            The type of the elements in the array. It must be a subclass of
+ *            {@link JSON}.
+ */
 public class JSONArray<J extends JSON> extends JSON implements Iterable<J> {
 	
 	/** The ordered list of values of the array */
@@ -33,8 +40,7 @@ public class JSONArray<J extends JSON> extends JSON implements Iterable<J> {
 	/**
 	 * Creates a new empty JSONArray.
 	 */
-	public JSONArray() {
-	}
+	public JSONArray() { }
 	
 	/**
 	 * Adds a new value to the array.
@@ -85,7 +91,8 @@ public class JSONArray<J extends JSON> extends JSON implements Iterable<J> {
 	 * given predicate.
 	 * 
 	 * @param pred
-	 * @return the first element satisfying pred in the array, or null if any
+	 * @return the first element satisfying {@code pred} in the array if it
+	 *         exists, or {@code null} otherwise
 	 */
 	public J find(Predicate<J> pred) {
 		for (J value : values) {

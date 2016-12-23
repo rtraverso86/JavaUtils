@@ -23,28 +23,55 @@ package it.riccardotraverso.xml;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class makes building strings of attributes for XML tags in the
+ * {@link XmlStringBuilder} easier.
+ * 
+ * @see XmlStringBuilder
+ * @see XmlStringBuilder#openTag(String, String)
+ * @see XmlStringBuilder#tag(String, String)
+ * @see XmlStringBuilder#tagWithText(String, String, String)
+ * 
+ */
 public class XmlTagOptions {
-	
+
 	private Map<String, String> options = new HashMap<String, String>();
 
-	public XmlTagOptions() { }
-	
-	/** Sets a value for an option, eventually overwriting the old one.
-	 * 
-	 * @param option
-	 * @param value
-	 */
-	public void set(String option, String value) {
-		options.put(option, value);
-	}
-	
 	/**
-	 * Clears the current set of options
+	 * Creates a new, empty <code>XmlTagOptions</code>.
+	 */
+	public XmlTagOptions() {
+	}
+
+	/**
+	 * Sets a value for an option, eventually overwriting the old one if already
+	 * set.
+	 * 
+	 * @param attribute
+	 *            the name of the attributes
+	 * @param value
+	 *            the value to be associated to the attribute
+	 */
+	public void set(String attribute, String value) {
+		options.put(attribute, value);
+	}
+
+	/**
+	 * Clears the current set of options.
 	 */
 	public void clear() {
 		options.clear();
 	}
-	
+
+	/**
+	 * Converts to a string the current set of options. The result can be used
+	 * for every attributes string taken in input by the methods of
+	 * {@link XmlStringBuilder}.
+	 * 
+	 * @see XmlStringBuilder#openTag(String, String)
+	 * @see XmlStringBuilder#tag(String, String)
+	 * @see XmlStringBuilder#tagWithText(String, String, String)
+	 */
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

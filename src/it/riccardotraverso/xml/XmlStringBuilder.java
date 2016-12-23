@@ -25,8 +25,15 @@ import it.riccardotraverso.java.util.ArraysUtils;
 
 import java.util.Stack;
 
+/**
+ * The <code>XmlStringBuilder</code> internally relies on the efficiency of the
+ * {@link java.lang.StringBuilder} in order to build an XML document
+ * and, by means of the {@link #toString()} method, conveniently convert it in a
+ * string.
+ * 
+ * @see XmlTagOptions
+ */
 public class XmlStringBuilder {
-	
 	
 	
 	private StringBuilder _sb = new StringBuilder();
@@ -39,11 +46,21 @@ public class XmlStringBuilder {
 	private static final String CLOSED_ERROR = "XML document is already closed";
 	
 
-	
+	/**
+	 * Creates a new empty <code>XmlStringBuilder</code>.
+	 */
 	public XmlStringBuilder() {
 		initXml();
 	}
 	
+	/**
+	 * Creates a new empty <code>XmlStringBuilder</code>.
+	 * 
+	 * @param defaultNestingSize
+	 *            The expected level of tag nesting in the XML document being
+	 *            built. Only used for internal optimizations, it does not affect
+	 *            the building process of the document.
+	 */
 	public XmlStringBuilder(int defaultNestingSize) {
 		initXml();
 		_tags.ensureCapacity(defaultNestingSize);
@@ -52,15 +69,30 @@ public class XmlStringBuilder {
 	
 	
 	/**
-	 * Adds a self-contained tag <code>&lt;tag options\&gt;text&lt;/tag&gt;</code>.
+	 * Adds a self-contained tag <code>&lt;tag attrs\&gt;text&lt;/tag&gt;</code>
+	 * .
+	 * 
 	 * @param tag
-	 * @param options
+	 *            the tag being added
+	 * @param attrs
+	 *            Eventual attributes for the tag, null or empty otherwise. This
+	 *            string is directly concatenated as is into the tag opening,
+	 *            e.g. if <code>tag</code> is <code>myTag</code> and
+	 *            <code>attrs</code> is
+	 *            <code>"myAttr='3' otherAttr='hello'"</code> then the resulting
+	 *            tag being opened will be
+	 *            <code>&lt;myTag myAttr='3' otherAttr='hello'&gt;</code>
 	 * @param text
+	 *            The contents of the tag, as a string.
+	 * 
+	 * @throws RuntimeException
+	 *             Thrown when trying to add content to an already closed XML
+	 *             document.
 	 */
-	public void tagWithText(String tag, String options, String text) {
+	public void tagWithText(String tag, String attrs, String text) {
 		if (_isClosed)
 			throw new RuntimeException(CLOSED_ERROR);
-		initTag(tag, options, false);
+		initTag(tag, attrs, false);
 		_sb.append('>');
 		_sb.append(text);
 		_sb.append("</");
@@ -69,46 +101,83 @@ public class XmlStringBuilder {
 	}
 	
 	/**
-	 * Adds a self-contained tag <code>&lt;tag\&gt;text&lt;/tag&gt;</code>.
+	 * Adds a self-contained tag <code>&lt;tag&gt;text&lt;/tag&gt;</code>.
+	 * 
 	 * @param tag
+	 *            the tag being added
 	 * @param text
+	 *            The contents of the tag, as a string.
+	 *            
+	 * @throws RuntimeException
+	 *             Thrown when trying to add content to an already closed XML
+	 *             document.
 	 */
 	public void tagWithText(String tag, String text) {
 		tagWithText(tag, null, text);
 	}
 	
 	/**
-	 * Adds a self contained tag <code>&lt;tag options /&gt;</code>.
+	 * Adds a self contained tag <code>&lt;tag attrs /&gt;</code>.
 	 * 
 	 * @param tag
-	 * @param options
+	 *            the tag being added
+	 * @param attrs
+	 *            Eventual attributes for the tag, null or empty otherwise. This
+	 *            string is directly concatenated as is into the tag opening,
+	 *            e.g. if <code>tag</code> is <code>myTag</code> and
+	 *            <code>attrs</code> is
+	 *            <code>"myAttr='3' otherAttr='hello'"</code> then the resulting
+	 *            tag being opened will be
+	 *            <code>&lt;myTag myAttr='3' otherAttr='hello' /&gt;</code>
+	 * 
+	 * @throws RuntimeException
+	 *             Thrown when trying to add content to an already closed XML
+	 *             document.
 	 */
-	public void tag(String tag, String options) {
+	public void tag(String tag, String attrs) {
 		if (_isClosed)
 			throw new RuntimeException(CLOSED_ERROR);
-		initTag(tag, options, false);
+		initTag(tag, attrs, false);
 		_sb.append("/>");
 	}
 	
 	/**
 	 * Adds a self contained tag <code>&lt;tag/&gt;</code>.
 	 * 
-	 * @param t
+	 * @param tag
+	 *            the tag being added
+	 *            
+	 * @throws RuntimeException
+	 *             Thrown when trying to add content to an already closed XML
+	 *             document.
 	 */
-	public void tag(String t) {
-		tag(t, null);
+	public void tag(String tag) {
+		tag(tag, null);
 	}
 	
 	/**
 	 * Opens a new tag </code>&lt;tag options></code>.
+	 * This call must be followed at some point by a matching call to {@link #closeTag()}.
 	 * 
-	 * @param t
-	 * @param options
+	 * @param tag
+	 *  the tag being added
+	 * @param attrs
+	 *            Eventual attributes for the tag, null or empty otherwise. This
+	 *            string is directly concatenated as is into the tag opening,
+	 *            e.g. if <code>tag</code> is <code>myTag</code> and
+	 *            <code>attrs</code> is
+	 *            <code>"myAttr='3' otherAttr='hello'"</code> then the resulting
+	 *            tag being opened will be
+	 *            <code>&lt;myTag myAttr='3' otherAttr='hello'&gt;</code>
+	 *            
+	 * @throws RuntimeException
+	 *             Thrown when trying to add content to an already closed XML
+	 *             document.
 	 */
-	public void openTag(String t, String options) {
+	public void openTag(String tag, String attrs) {
 		if (_isClosed)
 			throw new RuntimeException(CLOSED_ERROR);
-		initTag(t, options, true);
+		initTag(tag, attrs, true);
 		_sb.append(">");
 	}
 	
@@ -125,6 +194,10 @@ public class XmlStringBuilder {
 	 * Appends a simple string of text.
 	 *  
 	 * @param txt
+	 * 
+	 * @throws RuntimeException
+	 *             Thrown when trying to add content to an already closed XML
+	 *             document.
 	 */
 	public void text(String txt) {
 		if (_isClosed)
@@ -135,8 +208,12 @@ public class XmlStringBuilder {
 	}
 
 	/**
-	 * Closes the last tag opened, if any.
+	 * Closes the last tag opened, if any. If this call causes the last opened
+	 * tag to be closed, the XML document itself is marked as closed and every
+	 * further attempt to edit will raise a {@link java.lang.RuntimeException}.
 	 * 
+	 * @throws RuntimeException
+	 *             Thrown when trying to close an already closed document.
 	 */
 	public void closeTag() {
 		if (_isClosed)
@@ -153,7 +230,12 @@ public class XmlStringBuilder {
 	}
 	
 	/**
-	 * Closes all tags and the document
+	 * Closes all tags and the document. The XML document itself is marked as
+	 * closed and every further attempt to edit will raise a
+	 * {@link java.lang.RuntimeException}.
+	 * 
+	 * @throws RuntimeException
+	 *             Thrown when trying to close an already closed document.
 	 */
 	public void close() {
 		if (_isClosed)
@@ -165,8 +247,8 @@ public class XmlStringBuilder {
 	
 	
 	/**
-	 * True iff all opened tags have been closed.
-	 * Once closed, the document cannot be opened again.
+	 * Returns <code>true</code> if and only if all opened tags have been closed.
+	 * Once closed, the document cannot be re-opened to edits again.
 	 * 
 	 */
 	public boolean isClosed() {
@@ -177,6 +259,9 @@ public class XmlStringBuilder {
 	private void initXml() {
 		initXml(null);
 	}
+	
+	
+	// Internals
 	
 	private void initXml(String options) {
 		_sb.append("<?xml ");
@@ -222,6 +307,12 @@ public class XmlStringBuilder {
 		_sb.append(ArraysUtils.replicate(_tags.size(), TABS));
 	}
 	
+	/**
+	 * Converting the XML document being built to a string forces the closure
+	 * of all tags left open and the closure of the document itself to further edits.
+	 * 
+	 *  @see #close()
+	 */
 	@Override
 	public String toString() {
 		if (!_isClosed) {

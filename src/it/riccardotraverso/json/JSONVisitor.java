@@ -20,20 +20,98 @@
 
 package it.riccardotraverso.json;
 
+/**
+ * A visitor can be accepted by a JSON in order to perform computations
+ * involving all of the elements contained in the JSON. The execution must start
+ * by passing an instance of the visitor to the {@link JSON#accept(JSONVisitor)}
+ * method of the JSON that must be traversed.
+ * 
+ * @see JSON
+ * @see JSON#accept(JSONVisitor)
+ * @see JSONVisitorAdapter
+ * 
+ */
 public interface JSONVisitor {
-	
+
+	/**
+	 * Method called by {@link JSON#accept(JSONVisitor)} at the beginning of the
+	 * visit of a {@link JSONArray}, i.e. before propagating the visit on every
+	 * item in the array.
+	 * 
+	 * @param arr
+	 *            the {@link JSONArray} that is being currently visited
+	 */
 	void enterJSONArray(JSONArray<? extends JSON> arr);
+
+	/**
+	 * Method called by {@link JSON#accept(JSONVisitor)} at the end of the visit
+	 * of a {@link JSONArray}, i.e. after propagating the visit on every item in
+	 * the array.
+	 * 
+	 * @param arr
+	 *            the {@link JSONArray} that is being currently visited
+	 */
 	void exitJSONArray(JSONArray<? extends JSON> arr);
-	
+
+	/**
+	 * Method called by {@link JSON#accept(JSONVisitor)} at the beginning of the
+	 * visit of a {@link JSONObject}, i.e. before propagating the visit on every
+	 * property of the object.
+	 * 
+	 * @param obj
+	 *            the {@link JSONObject} that is being currently visited
+	 */
 	void enterJSONObject(JSONObject obj);
+
+	/**
+	 * Method called by {@link JSON#accept(JSONVisitor)} at the end of the visit
+	 * of a {@link JSONObject}, i.e. after propagating the visit on every
+	 * property of the object.
+	 * 
+	 * @param obj
+	 *            the {@link JSONObject} that is being currently visited
+	 */
 	void exitJSONObject(JSONObject obj);
-	
+
+	/**
+	 * Method called by {@link JSON#accept(JSONVisitor)} during the visit of a
+	 * {@link JSONString}. In the recursive tree of calls to the methods of the
+	 * visitor, this represents a leave.
+	 * 
+	 * @param JSONString
+	 *            el the {@link JSONString} that is being currently visited
+	 */
 	void visitJSONString(JSONString el);
-	
+
+	/**
+	 * Method called by {@link JSON#accept(JSONVisitor)} during the visit of a
+	 * {@link JSONInteger}. In the recursive tree of calls to the methods of the
+	 * visitor, this represents a leave.
+	 * 
+	 * @param el
+	 *            the {@link JSONInteger} that is being currently visited
+	 */
 	void visitJSONInteger(JSONInteger el);
-	
+
+	/**
+	 * Method called by {@link JSON#accept(JSONVisitor)} during the visit of a
+	 * {@link JSONBoolean}. In the recursive tree of calls to the methods of the
+	 * visitor, this represents a leave.
+	 * 
+	 * @param el
+	 *            the {@link JSONBoolean} that is being currently visited
+	 */
 	void visitJSONBoolean(JSONBoolean el);
-	
+
+	/**
+	 * Method called by {@link JSON#accept(JSONVisitor)} during the visit of a
+	 * {@link JSONObject.Property}, before propagating it to the {@link JSON}
+	 * value pointed by the property.
+	 * 
+	 * @param el
+	 *            the {@link JSONObject.Property} that is being currently
+	 *            visited
+	 */
 	void visitJSONProperty(JSONObject.Property prop);
 
 }

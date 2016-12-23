@@ -20,31 +20,60 @@
 
 package it.riccardotraverso.json;
 
+/**
+ * A JSON boolean value.
+ */
 public class JSONBoolean extends JSON {
 
 	private boolean value;
 
 	/**
+	 * Creates a new boolean JSON value.
+	 * 
 	 * @param value
+	 *            the truth value to be represented
 	 */
 	public JSONBoolean(boolean value) {
 		super();
 		this.value = value;
 	}
 	
+	/**
+	 * Creates a new boolean JSON value.
+	 * 
+	 * @param value
+	 *            the truth value to be represented
+	 */
 	public JSONBoolean(Boolean value) {
 		this.value = value.booleanValue();
 	}
 	
+	/**
+	 * Creates a new boolean JSON value.
+	 * 
+	 * @param value
+	 *            the truth value to be represented, as a string
+	 *            that can be parsed via {@link Boolean#parseBoolean(String)}
+	 */
 	public JSONBoolean(String value) {
 		this.value = Boolean.parseBoolean(value);
 	}
 	
+	/**
+	 * Creates a new boolean JSON value.
+	 * 
+	 * @param value
+	 *            the truth value to be represented, as an integer that follows
+	 *            the C language convention such that 0 is false and everything
+	 *            else is true.
+	 */
 	public JSONBoolean(int value) {
 		this.value = value == 0 ? false : true;
 	}
 
 	/**
+	 * Gets the truth value being represented.
+	 * 
 	 * @return the value
 	 */
 	public boolean getValue() {
@@ -52,6 +81,8 @@ public class JSONBoolean extends JSON {
 	}
 
 	/**
+	 * Sets the truth value being represented.
+	 * 
 	 * @param value
 	 *            the value to set
 	 */
@@ -60,16 +91,23 @@ public class JSONBoolean extends JSON {
 	}
 
 	/**
+	 * Returns true iff the JSON boolean is true.
 	 * Same as getValue().
 	 */
 	public boolean isTrue() {
 		return value;
 	}
 
+	/**
+	 * Returns true iff the JSON boolean is false.
+	 */
 	public boolean isFalse() {
 		return !value;
 	}
 
+	/**
+	 * A shortcut for {@code obj.setValue(!obj.getValue())}.
+	 */
 	public void toggle() {
 		value = !value;
 	}

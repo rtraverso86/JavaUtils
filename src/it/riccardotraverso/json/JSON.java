@@ -20,10 +20,34 @@
 
 package it.riccardotraverso.json;
 
+/**
+ * A generic JSON element (see the Composite design pattern) built in Java 
+ * as a tree structure made from subclasses of this root class.
+ * 
+ * It provides support for {@link JSONVisitor} (see the Visitor design pattern)
+ * as a mean to perform visits and computations that are propagated on every JSON element
+ * contained, from the root to the leaves. See {@link JSONPrettyPrint} together with
+ * {@link #toString()} for a complete example.
+ * 
+ * @see JSONVisitor
+ * @see JSONVisitorAdapter
+ */
 public abstract class JSON {
 	
+	/**
+	 * Accepting a visitor object means recursively calling the proper visitor's
+	 * methods on all of the JSON objects contained.
+	 * 
+	 * @param v
+	 *            the visitor to be accepted by the current JSON element
+	 *            
+	 * @see JSONVisitor
+	 */
 	public abstract void accept(JSONVisitor v);
 	
+	/**
+	 * Pretty-prints the current element as a valid JSON string.
+	 */
 	@Override
 	public String toString() {
 		JSONPrettyPrint pp = new JSONPrettyPrint();

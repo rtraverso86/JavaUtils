@@ -25,8 +25,17 @@ import it.riccardotraverso.java.lang.StringUtils;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+/**
+ * A JSON object is a sort of dictionary associating labels to other JSON
+ * elements via {@link JSONObject.Property}.
+ * 
+ */
 public class JSONObject extends JSON implements Iterable<JSONObject.Property> {
 
+	/**
+	 * An entry of a {@link JSONObject}, composed of a property name and a
+	 * respective {@link JSON} value.
+	 */
 	public class Property {
 		private String name;
 		private JSON value;
@@ -49,6 +58,8 @@ public class JSONObject extends JSON implements Iterable<JSONObject.Property> {
 		}
 
 		/**
+		 * Returns the name of the property.
+		 * 
 		 * @return the name
 		 */
 		public String getName() {
@@ -56,6 +67,8 @@ public class JSONObject extends JSON implements Iterable<JSONObject.Property> {
 		}
 
 		/**
+		 * Sets the name of the property.
+		 * 
 		 * @param name
 		 *            the name to set
 		 */
@@ -64,6 +77,8 @@ public class JSONObject extends JSON implements Iterable<JSONObject.Property> {
 		}
 
 		/**
+		 * Returns the value of the property.
+		 * 
 		 * @return the value
 		 */
 		public JSON getValue() {
@@ -71,6 +86,8 @@ public class JSONObject extends JSON implements Iterable<JSONObject.Property> {
 		}
 
 		/**
+		 * Sets the value of the property.
+		 * 
 		 * @param value
 		 *            the value to set
 		 */
